@@ -1,0 +1,10 @@
+html, body {
+    height: 100vh;
+}
+
+.app {
+    background-image: url('../img/planks.jpg');
+    text-align: center;
+    padding: 0;
+    height: 100vh;
+}
