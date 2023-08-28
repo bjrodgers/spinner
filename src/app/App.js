@@ -7,8 +7,7 @@ import './App.css';
 export default function App() {
   const randomCount = 25;
 
-  const [letter, setLetter] = useState(65);
-  const [number, setNumber] = useState(1);
+  const [location, setLocation] = useState('-----');
   const [disableBtn, setDisableBtn] = useState(false);
   const count = useRef(0);
   const timerId = useRef(0);
@@ -21,8 +20,11 @@ export default function App() {
       return;
     }
 
-    setLetter(Math.floor(Math.random() * 12 + 65));
-    setNumber(Math.floor(Math.random() * 18) + 1);
+    const letter = Math.floor(Math.random() * 12 + 65);
+    const number = Math.floor(Math.random() * 18) + 1;
+    const location = `${String.fromCharCode(letter)}-${number}`;
+    setLocation(location)
+
     count.current = count.current + 1;
   }
 
@@ -40,8 +42,7 @@ export default function App() {
              alignItems="center">
         <Box>
           <Typography sx={{fontSize: '10rem', color: 'cornsilk'}}>
-            {String.fromCharCode(letter)}-
-            {number}
+            {location}
           </Typography>
           <Box
             component="img"
