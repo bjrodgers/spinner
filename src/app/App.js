@@ -29,13 +29,15 @@ export default function App() {
   }
 
   function _onSpinClick() {
+    if (disableBtn) return;
+
     setDisableBtn(true);
     count.current = 0;
     timerId.current = window.setInterval(_updateLocation, 50);
   }
 
   function _render() {
-    const opacityValue = disableBtn ? .5 : 1;
+    const opacityValue = disableBtn ? .25 : 1;
     return (
       <Stack className='app'
              justifyContent="space-around"
