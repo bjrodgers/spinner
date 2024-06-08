@@ -4,6 +4,12 @@ import React, {useRef, useState} from "react";
 import spinJpg from '../img/spin.png';
 import './App.css';
 
+/// Get a random integer with the bounds of min and max (includes min and max)
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+/// Main App
 export default function App() {
   const randomCount = 25;
 
@@ -20,8 +26,8 @@ export default function App() {
       return;
     }
 
-    const letter = Math.floor(Math.random() * 12 + 65);
-    const number = Math.floor(Math.random() * 18) + 1;
+    const letter = randomInt(65, 76);
+    const number = randomInt(1,18);
     const location = `${String.fromCharCode(letter)}-${number}`;
     setLocation(location)
 
